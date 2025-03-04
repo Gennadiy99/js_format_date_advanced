@@ -8,19 +8,19 @@
  * @returns {string}
  */
 
-function formatDate(dateStr, fromForm, toForm) {
+function formatDate(dateStr, fromFormat, toFormat) {
 
-  let sepOld = fromForm[3];
-  let sepNew = toForm[3];
+  let sepOld = fromFormat[3];
+  let sepNew = toFormat[3];
   let arrDateOld = dateStr.split(sepOld);
 
   const dateFormObj = {};
 
-  fromForm.slice(0, 3).forEach((component, index) => {
+  fromFormat.slice(0, 3).forEach((component, index) => {
     dateFormObj[component] = arrDateOld[index];
   });
 
-  let newFormArr = toForm.slice(0, 3).map(component => {
+  let newFormArr = toFormat.slice(0, 3).map(component => {
 
     let value = dateFormObj[component];
 
@@ -39,7 +39,7 @@ function formatDate(dateStr, fromForm, toForm) {
     return value;
   }).join(sepNew);
 
-  return newFormArr
+  return newFormArr;
 }
 
 // console.log(formatDate(date, fromFormat, toFormat));
